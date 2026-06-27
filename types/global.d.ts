@@ -1,3 +1,5 @@
+import { Control, FieldError, UseFormRegister, RegisterOptions, FieldValues } from 'react-hook-form';
+
 declare global {
     type SignInFormData = {
         email: string;
@@ -17,7 +19,7 @@ declare global {
     type CountrySelectProps = {
         name: string;
         label: string;
-        control: Control;
+        control: any;
         error?: FieldError;
         required?: boolean;
     };
@@ -44,7 +46,7 @@ declare global {
         label: string;
         placeholder: string;
         options: readonly Option[];
-        control: Control;
+        control: any;
         error?: FieldError;
         required?: boolean;
     };
@@ -56,9 +58,14 @@ declare global {
     };
 
     type SearchCommandProps = {
+        open?: boolean;
+        setOpen?: (open: boolean) => void;
         renderAs?: 'button' | 'text';
+        buttonLabel?: string;
         label?: string;
-        initialStocks: StockWithWatchlistStatus[];
+        buttonVariant?: 'primary' | 'secondary';
+        className?: string;
+        initialStocks?: StockWithWatchlistStatus[];
     };
 
     type WelcomeEmailData = {
@@ -168,14 +175,6 @@ declare global {
         news?: MarketNewsArticle[];
     };
 
-    type SearchCommandProps = {
-        open?: boolean;
-        setOpen?: (open: boolean) => void;
-        renderAs?: 'button' | 'text';
-        buttonLabel?: string;
-        buttonVariant?: 'primary' | 'secondary';
-        className?: string;
-    };
 
     type AlertData = {
         symbol: string;
