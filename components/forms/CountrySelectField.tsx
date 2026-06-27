@@ -25,7 +25,7 @@ import countryList from 'react-select-country-list';
 type CountrySelectProps = {
     name: string;
     label: string;
-    control: Control<any>;
+    control: any;
     error?: FieldError;
     required?: boolean;
 };
@@ -53,7 +53,7 @@ const CountrySelect = ({
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger>
                 <Button
                     variant='outline'
                     role='combobox'
